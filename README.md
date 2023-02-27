@@ -4,7 +4,7 @@
 
 This code corresponds to our IJCAI 2023 AI And Social Good submission. This includes a simulated satellite-to-ground communication environment for training reinforcement learning to control a deformable mirror in a wavefront sensorless
 
-![](https://github.com/cbellinger27/adaptive_optics_gym/files/10845103/ao_system_2.pdf?raw=true)
+![](https://github.com/cbellinger27/adaptive_optics_gym/files/10845103/ao_system_2.pdf?raw=true  | width=100)
 
 ### RL Gym
 
