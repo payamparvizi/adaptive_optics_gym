@@ -6,9 +6,13 @@ This code corresponds to our IJCAI 2023 AI And Social Good submission. This incl
 
 ## RL Gym
 
-State space...
-Action space...
-Reward function...
+Episodic training: each episode is 30 time steps long. The RL agent learns transform the DM from its neutral position to a formation that focuses the beam on the SMF.
+
+Observation space: The observation space in the environment is a discretization of the focal plane into a sub-aperture array of 2x2 pixels that can be realized with a fast and relatively low-cost quadrant photodetector.
+
+Action space: The environment includes a 64-dimensional continuous action space that simulates 64-actuator segmented DM that has roughly 8 actuators across a linear dimension.
+
+Reward function: The reward function is calculated as the Strehl ratio of the optical system.
 
 # Installation Instructions
 
