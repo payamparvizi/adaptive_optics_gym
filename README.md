@@ -4,6 +4,8 @@
 
 This code corresponds to our IJCAI 2023 AI And Social Good submission. This includes a simulated satellite-to-ground communication environment for training reinforcement learning to control a deformable mirror in a wavefront sensorless
 
+[ao_system_2.pdf](https://github.com/cbellinger27/adaptive_optics_gym/files/10845103/ao_system_2.pdf)
+
 ### RL Gym
 
 Episodic training: each episode is 30 time steps long. The RL agent learns transform the DM from its neutral position to a formation that focuses the beam on the SMF.
