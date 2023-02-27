@@ -1,10 +1,10 @@
 # Adaptive Optics Reinforcement Learning Gym
 
-# Overview 
+## Overview 
 
 This code corresponds to our IJCAI 2023 AI And Social Good submission. This includes a simulated satellite-to-ground communication environment for training reinforcement learning to control a deformable mirror in a wavefront sensorless
 
-## RL Gym
+### RL Gym
 
 Episodic training: each episode is 30 time steps long. The RL agent learns transform the DM from its neutral position to a formation that focuses the beam on the SMF.
 
@@ -14,14 +14,14 @@ Action space: The environment includes a 64-dimensional continuous action space 
 
 Reward function: The reward function is calculated as the Strehl ratio of the optical system.
 
-# Installation Instructions
+## Installation Instructions
 
-# Running the RL environment 
+## Running the RL environment 
 
-# Training the models from the paper
+## Training the models from the paper
 
-# Citation
+## Citation
 
-# Acknowledgement
+## Acknowledgement
 
 This work was graciously funded by the [University of Ottawa](https://www.uottawa.ca) and the National Research Council of Canada's [AI for Design program](https://nrc.canada.ca/en/research-development/research-collaboration/programs/artificial-intelligence-design-challenge-program). 
