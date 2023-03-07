@@ -62,6 +62,9 @@ Previous versions of PyTorch can be found in link below:
 https://pytorch.org/get-started/previous-versions/
 ```
 
+### Gym
+dafa
+
 ### Other dependencies
 fsdf
 ## Running the RL environment 
