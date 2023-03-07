@@ -80,8 +80,13 @@ https://pypi.org/project/gym/#history
 ### Other dependencies
 
 There are other dependencies that have been utilized in this work as follows:
-- daaf
-- fafgagg
+- scipy (for advanced linear algebra)
+- numpy (for all numerical calculations)
+- pandas (for data manipulation and analysis)
+- matplotlib (for visualisations)
+- pickle (for storing or loading data)
+- argparse (for command-line parsing)
+- 
 
 
 ## Running the RL environment 
