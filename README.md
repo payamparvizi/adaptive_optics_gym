@@ -59,7 +59,7 @@ PyTorch provides users with a range of choices for selecting their operating sys
 https://pytorch.org/get-started/locally/
 ```
 
-Previous versions of PyTorch can be found in link below:
+Previous versions of PyTorch can be found in the link below:
 ```
 https://pytorch.org/get-started/previous-versions/
 ```
@@ -70,6 +70,11 @@ The Gym library is a Python-based open-source framework designed by OpenAI to fa
 OpenAI Gym is available on PyPI. In this work, we used the version of '0.23.1'
 ```
 pip install gym==0.23.1
+```
+
+Other versions of the Gym framework, can be found in the link below:
+```
+https://pypi.org/project/gym/#history
 ```
 
 ### Other dependencies
