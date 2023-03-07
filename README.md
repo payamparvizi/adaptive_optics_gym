@@ -81,14 +81,14 @@ https://pypi.org/project/gym/#history
 
 There are other dependencies that have been utilized in this work as follows:
 - **scipy** (for advanced linear algebra)
-- numpy (for all numerical calculations)
-- pandas (for data manipulation and analysis)
-- matplotlib (for visualisations)
-- pickle (for storing or loading data)
-- argparse (for command-line parsing)
-- sys (for manipulating the runtime environment)
-- os (for creating the naming a directory)
-- random (for generating random numbers)
+- **numpy** (for all numerical calculations)
+- **pandas** (for data manipulation and analysis)
+- **matplotlib** (for visualisations)
+- **pickle** (for storing or loading data)
+- **argparse** (for command-line parsing)
+- **sys** (for manipulating the runtime environment)
+- **os** (for creating the naming a directory)
+- **random** (for generating random numbers)
 
 
 ## Running the RL environment 
