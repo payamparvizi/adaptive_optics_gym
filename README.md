@@ -50,7 +50,7 @@ To develop our Reinforcement Learning algorithms, we employed the PyTorch framew
 
 PyTorch provides users with a range of choices for selecting their operating system (Linux/Mac/Windows), the package (conda/pip) and compute platform (CUDA/CPU). To find the suitable Pytorch framework check the link:
 ```
-dad
+https://pytorch.org/get-started/locally/
 ```
 
 ### Other dependencies
