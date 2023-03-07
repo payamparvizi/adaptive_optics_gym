@@ -80,7 +80,7 @@ https://pypi.org/project/gym/#history
 ### Other dependencies
 
 There are other dependencies that have been utilized in this work as follows:
-- scipy (for advanced linear algebra)
+- **scipy** (for advanced linear algebra)
 - numpy (for all numerical calculations)
 - pandas (for data manipulation and analysis)
 - matplotlib (for visualisations)
