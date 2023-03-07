@@ -86,7 +86,8 @@ There are other dependencies that have been utilized in this work as follows:
 - matplotlib (for visualisations)
 - pickle (for storing or loading data)
 - argparse (for command-line parsing)
-- 
+- sys (for manipulating the runtime environment)
+- os (
 
 
 ## Running the RL environment 
