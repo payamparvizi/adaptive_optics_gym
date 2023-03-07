@@ -27,7 +27,7 @@ The Adaptive Optics Gym framework is developed utilizing the HCIPy, an open-sour
 It is available for installation through PyPI using the command:
 
 .. code-block:: shell 
-  pip install hcipy --upgrade
+    pip install hcipy --upgrade
 
 ### Dependencies
 fsdf
