@@ -80,7 +80,8 @@ https://pypi.org/project/gym/#history
 ### Other dependencies
 
 There are other dependencies that have been utilized in this work as follows:
-
+$ daaf
+$ fafgagg
 
 
 ## Running the RL environment 
