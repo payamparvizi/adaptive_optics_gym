@@ -87,7 +87,8 @@ There are other dependencies that have been utilized in this work as follows:
 - pickle (for storing or loading data)
 - argparse (for command-line parsing)
 - sys (for manipulating the runtime environment)
-- os (
+- os (for creating the naming a directory)
+- random (for generating random numbers)
 
 
 ## Running the RL environment 
