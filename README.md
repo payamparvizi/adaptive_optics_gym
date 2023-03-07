@@ -46,7 +46,7 @@ https://docs.hcipy.org/0.4.0/installation.html
 
 ### Pytorch
 
-To develop our Reinforcement Learning algorithms, we employed the PyTorch framework, which is a machine learning platform built on the Torch library.
+To develop our Reinforcement Learning algorithms, we employed the PyTorch framework, which is a machine learning framework built on the Torch library.
 
 ### Other dependencies
 fsdf
