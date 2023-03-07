@@ -1,6 +1,9 @@
+hcipy
 gym
 torch
+scipy
 numpy
+pandas
 matplotlib
 pickle
 argparse
