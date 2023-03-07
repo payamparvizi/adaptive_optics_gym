@@ -78,7 +78,11 @@ https://pypi.org/project/gym/#history
 ```
 
 ### Other dependencies
-fsdf
+
+There are other dependencies that have been utilized in this work as follows:
+
+
+
 ## Running the RL environment 
 
 ## Training the models from the paper
