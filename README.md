@@ -63,7 +63,7 @@ https://pytorch.org/get-started/previous-versions/
 ```
 
 ### Gym
-The Gym library is a Python-based open-source framework designed to facilitate the development and comparison of reinforcement learning algorithms. The library offers a standardized Application Programming Interface (API) to enable communication between learning algorithms and environments.
+The Gym library is a Python-based open-source framework designed to facilitate the development and comparison of reinforcement learning algorithms. The library offers a standardized Application Programming Interface (API) to enable communication between learning algorithms and environments ([Brockman et al. 2016](https://arxiv.org/abs/1606.01540)).
 
 
 ### Other dependencies
