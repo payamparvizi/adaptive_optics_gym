@@ -38,7 +38,7 @@ cd hcipy
 pip install -e .
 ```
 
-For more comprehensive instructions on installing the HCIPy framework, please refer to the hyperlink provided below:
+For more comprehensive instructions on installing the HCIPy framework, please refer to the link provided here:
 
 ```
 https://docs.hcipy.org/0.4.0/installation.html
