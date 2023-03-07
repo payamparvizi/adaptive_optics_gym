@@ -44,6 +44,9 @@ For more comprehensive instructions on installing the HCIPy framework, please re
 https://docs.hcipy.org/0.4.0/installation.html
 ```
 
+### Pytorch
+
+das
 
 ### Other dependencies
 fsdf
