@@ -18,7 +18,7 @@ Reward function: The reward function is calculated as the Strehl ratio of the op
 
 ## Installation Instructions
 gdfgd
-# Dependencies
+### Dependencies
 fsdf
 ## Running the RL environment 
 
