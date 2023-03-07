@@ -18,7 +18,7 @@ Reward function: The reward function is calculated as the Strehl ratio of the op
 
 ## Installation Instructions
 
-https://docs.hcipy.org/0.4.0/installation.html
+
 
 ### Dependencies
 fsdf
