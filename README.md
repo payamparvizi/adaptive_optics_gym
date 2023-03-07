@@ -38,7 +38,14 @@ cd hcipy
 pip install -e .
 ```
 
-### Dependencies
+For more comprehensive instructions on installing the HCIPy framework, please refer to the hyperlink provided below:
+
+```
+https://docs.hcipy.org/0.4.0/installation.html
+```
+
+
+### Other dependencies
 fsdf
 ## Running the RL environment 
 
