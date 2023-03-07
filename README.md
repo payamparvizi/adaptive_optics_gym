@@ -52,9 +52,14 @@ To develop our Reinforcement Learning algorithms, we employed the PyTorch framew
 conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cpuonly -c pytorch
 ```
 
-PyTorch provides users with a range of choices for selecting their operating system (Linux/Mac/Windows), the package (conda/pip) and compute platform (CUDA/CPU). To find the suitable Pytorch framework check the link:
+PyTorch provides users with a range of choices for selecting their operating system (Linux/Mac/Windows), the package (Conda/Pip) and compute platform (CUDA/CPU). To find the suitable Pytorch framework check the link:
 ```
 https://pytorch.org/get-started/locally/
+```
+
+Previous versions of PyTorch can be found in link below:
+```
+https://pytorch.org/get-started/previous-versions/
 ```
 
 ### Other dependencies
