@@ -20,6 +20,8 @@ Reward function: The reward function is calculated as the Strehl ratio of the op
 
 ## Installation Instructions
 
+### HCIPy: High Contrast Imaging for Python
+
 The Adaptive Optics Gym framework is developed utilizing the HCIPy, an open-source object-oriented framework written in Python for performing end-to-end simulations of high-contrast imaging instruments ([Por et al. 2018](https://doi.org/10.1117/12.2314407)).
 
 It is available for installation through PyPI using the command:
