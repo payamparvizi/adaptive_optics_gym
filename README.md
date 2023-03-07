@@ -65,9 +65,9 @@ https://pytorch.org/get-started/previous-versions/
 ### Gym
 The Gym library is a Python-based open-source framework designed by OpenAI to facilitate the development and comparison of reinforcement learning algorithms. The library offers a standardized Application Programming Interface (API) to enable communication between learning algorithms and environments ([Brockman et al. 2016](https://arxiv.org/abs/1606.01540)).
 
-OpenAI Gym is available on PyPI, so installation can be as easy as:
+OpenAI Gym is available on PyPI. In this work, we used the version of '0.23.1'
 ```
-pip install gym
+pip install gym==0.23.1
 ```
 
 ### Other dependencies
