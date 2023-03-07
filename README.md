@@ -72,7 +72,7 @@ OpenAI Gym is available on PyPI. In this work, we used the version of '0.23.1'
 pip install gym==0.23.1
 ```
 
-Other versions of the Gym framework, can be found in the link below:
+Other versions of the Gym framework can be found in the link below:
 ```
 https://pypi.org/project/gym/#history
 ```
