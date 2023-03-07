@@ -30,6 +30,13 @@ It is available for installation through PyPI using the command:
 pip install hcipy --upgrade
 ```
 
+Also, it is possible to install the latest deveopment version from Github by:
+
+```
+git clone https://github.com/ehpor/hcipy
+cd hcipy
+pip install -e .
+```
 
 ### Dependencies
 fsdf
@@ -42,7 +49,3 @@ fsdf
 ## Acknowledgement
 
 This work was graciously funded by the [University of Ottawa](https://www.uottawa.ca) and the National Research Council of Canada's [AI for Design program](https://nrc.canada.ca/en/research-development/research-collaboration/programs/artificial-intelligence-design-challenge-program). 
-
-## References
-
-[1] 
