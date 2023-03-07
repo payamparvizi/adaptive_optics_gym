@@ -46,7 +46,7 @@ https://docs.hcipy.org/0.4.0/installation.html
 
 ### Pytorch
 
-To develop our Reinforcement Learning algorithms, we employed the PyTorch framework, which is a machine learning framework built on the Torch library. In this work, pytorch==1.12.1 version is installed in Windows with CPU compute platform
+To develop our Reinforcement Learning algorithms, we employed the PyTorch framework, which is a machine learning framework built on the Torch library. In this work, pytorch==1.12.1 version is installed in Windows with CPU compute platform ([Paszke et al. 2019](https://proceedings.neurips.cc/paper/2019/hash/bdbca288fee7f92f2bfa9f7012727740-Abstract.html)).
 
 ```
 conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cpuonly -c pytorch
