@@ -20,7 +20,7 @@ Reward function: The reward function is calculated as the Strehl ratio of the op
 
 ## Installation Instructions
 
-In this work, we used Windows operating system with Python 3.9.7 version
+In this work, we used Windows operating system with Python 3.9.7 version. The libraries that are used is as follow:
 
 ### HCIPy: High Contrast Imaging for Python
 
