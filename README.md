@@ -4,7 +4,7 @@
 
 This code corresponds to our IJCAI 2023 AI And Social Good submission. This includes a simulated satellite-to-ground communication environment for training reinforcement learning to control a deformable mirror in a wavefront sensorless
 
-<img src="https://user-images.githubusercontent.com/45127690/223493910-2f739b38-3fd7-4a8e-97ea-a13e39b044a3.png" width="300" height="275">
+<img src="https://user-images.githubusercontent.com/45127690/223493910-2f739b38-3fd7-4a8e-97ea-a13e39b044a3.png" width="275" height="300">
 
 ### RL Gym
 
