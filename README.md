@@ -17,7 +17,9 @@ Action space: The environment includes a 64-dimensional continuous action space 
 Reward function: The reward function is calculated as the Strehl ratio of the optical system.
 
 ## Installation Instructions
-
+gdfgd
+# Dependencies
+fsdf
 ## Running the RL environment 
 
 ## Training the models from the paper
