@@ -1,6 +1,6 @@
 hcipy --upgrade
 gym==0.23.1
-torch
+torch==1.12.1+cpu torchvision==0.13.1+cpu torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cpu
 scipy
 numpy
 pandas
