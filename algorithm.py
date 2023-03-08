@@ -18,21 +18,14 @@ from replay_buffer import ReplayBuffer
 
 #------------------------------ Initialization -------------------------------#
 class ALGORITHM:
-    def __init__(self, policy_class1, critic_classQ1, critic_classQ2, critic_classV, 
-                 env, env_name, default_parameters, **hyperparameters):
+    def __init__(self, actor_model, criticQ1_model, criticQ2_model, criticV_model, 
+                 env, default_parameters, **hyperparameters):
 
         # Calling the environment
-        self.env_name = env_name
         self.env = env
 
         # Calling default parameters and algorithm hyperparameters from main.py
         self._init_parameters(hyperparameters, default_parameters)
-
-        # Create a folder to save reward plots and actor/critic
-        try:
-            os.makedirs('./' + self.myfilename)
-        except OSError:
-            pass
 
         # Extract out dimensions of observation and action spaces
         assert(type(env.observation_space) == gym.spaces.Box)
@@ -42,23 +35,23 @@ class ALGORITHM:
 
 
         # Initialize actor and critic networks and replay buffer for SAC
-        if self.algorithm == 'SAC':
+        if self.algorithm_name == 'SAC':
 
             # Initialize Actor network and optimizer
-            self.actor = policy_class1(self.obs_dim, self.act_dim, self.hidden_dim_actor)
+            self.actor = actor_model(self.obs_dim, self.act_dim, self.hidden_dim_actor)
             self.actor_optim = optim.Adamax(self.actor.parameters(), lr=self.lr_actor, 
                                             weight_decay=self.weight_decay_actor)
 
             # Initialize critic networks and optimizers
-            self.softq_critic1 = critic_classQ1(self.act_dim, self.obs_dim, self.hidden_dim_critic)
-            self.softq_critic2 = critic_classQ2(self.act_dim, self.obs_dim, self.hidden_dim_critic)
+            self.softq_critic1 = criticQ1_model(self.act_dim, self.obs_dim, self.hidden_dim_critic)
+            self.softq_critic2 = criticQ2_model(self.act_dim, self.obs_dim, self.hidden_dim_critic)
 
             self.q_optimizer1 = optim.Adamax(self.softq_critic1.parameters(), lr=self.lr_critic, weight_decay=self.weight_decay_critic)
             self.q_optimizer2 = optim.Adamax(self.softq_critic2.parameters(), lr=self.lr_critic, weight_decay=self.weight_decay_critic)
 
             # Initialize target critic networks
-            self.softq_critic_target1 = critic_classQ1(self.act_dim, self.obs_dim, self.hidden_dim_critic)
-            self.softq_critic_target2 = critic_classQ2(self.act_dim, self.obs_dim, self.hidden_dim_critic)
+            self.softq_critic_target1 = criticQ1_model(self.act_dim, self.obs_dim, self.hidden_dim_critic)
+            self.softq_critic_target2 = criticQ2_model(self.act_dim, self.obs_dim, self.hidden_dim_critic)
 
             # Initialize replay buffer
             self.replaybuffer = ReplayBuffer(self.replay_size, a_dim=self.act_dim, 
@@ -73,22 +66,22 @@ class ALGORITHM:
 
 
         # Initialize actor and critic networks and replay buffer for DDPG
-        if self.algorithm == 'DDPG':
+        if self.algorithm_name == 'DDPG':
 
             # Initialize Actor network and optimizer
-            self.actor = policy_class1(self.obs_dim, self.act_dim, self.hidden_dim_actor)
+            self.actor = actor_model(self.obs_dim, self.act_dim, self.hidden_dim_actor)
             self.actor_optim = optim.Adamax(self.actor.parameters(), lr=self.lr_actor, 
                                             weight_decay=self.weight_decay_actor)
 
             # Initialize critic networks and optimizer
-            self.softq_critic1 = critic_classQ1(self.act_dim, self.obs_dim, self.hidden_dim_critic)
+            self.softq_critic1 = criticQ1_model(self.act_dim, self.obs_dim, self.hidden_dim_critic)
             self.q_optimizer1 = optim.Adamax(self.softq_critic1.parameters(), lr=self.lr_critic, weight_decay=self.weight_decay_critic)
 
             # Initialize target actor network
-            self.actor_target = policy_class1(self.obs_dim, self.act_dim, self.hidden_dim_actor) 
+            self.actor_target = actor_model(self.obs_dim, self.act_dim, self.hidden_dim_actor) 
 
             # Initialize target critic network
-            self.softq_critic_target1 = critic_classQ1(self.act_dim, self.obs_dim, self.hidden_dim_critic)
+            self.softq_critic_target1 = criticQ1_model(self.act_dim, self.obs_dim, self.hidden_dim_critic)
 
             # Initialize replay buffer
             self.replaybuffer = ReplayBuffer(self.replay_size, a_dim=self.act_dim, 
@@ -96,15 +89,15 @@ class ALGORITHM:
 
 
         # Initialize actor and value function for PPO
-        if self.algorithm == 'PPO':
+        if self.algorithm_name == 'PPO':
 
             # Initialize Actor network and optimizer
-            self.actor = policy_class1(self.obs_dim, self.act_dim, self.hidden_dim_actor)
+            self.actor = actor_model(self.obs_dim, self.act_dim, self.hidden_dim_actor)
             self.actor_optim = optim.Adamax(self.actor.parameters(), lr=self.lr_actor, 
                                             weight_decay=self.weight_decay_actor)
 
             # Initialize value function and the optimizer
-            self.softV_critic = critic_classV(self.act_dim, self.obs_dim, self.hidden_dim_critic)
+            self.softV_critic = criticV_model(self.act_dim, self.obs_dim, self.hidden_dim_critic)
             self.V_optimizer = optim.Adamax(self.softV_critic.parameters(), lr=self.lr_critic, weight_decay=self.weight_decay_critic)
 
 
@@ -137,8 +130,7 @@ class ALGORITHM:
                 exec('self.' + param + ' = ' + str(val))
 
         self.render = default_parameters.get('render')
-        self.myfilename = default_parameters.get('save_name')
-        self.algorithm = default_parameters.get('algorithm')
+        self.algorithm_name = default_parameters.get('algorithm_name')
 
         self.timesteps_per_iteration = self.episodes_per_iteration * self.timesteps_per_episode    # Number of timesteps per iteration
         
@@ -170,7 +162,7 @@ class ALGORITHM:
 
                 # put the collection of data in algorithms
                 # SAC algorithm:
-                if self.algorithm == 'SAC':
+                if self.algorithm_name == 'SAC':
                     self.SAC(batch_obs, batch_act, batch_rew, batch_next_obs, batch_done)
 
                     if self.batch_size < len(self.replaybuffer):
@@ -178,13 +170,13 @@ class ALGORITHM:
 
                     # saving the actor and critic networks for SAC
                     if i_so_far % self.freq_ac_save == 0:
-                        torch.save(self.actor.state_dict(), './'+ self.myfilename + '/sac_actor.pth')
-                        torch.save(self.softq_critic1.state_dict(), './'+ self.myfilename + '/sac_critic1.pth')
-                        torch.save(self.softq_critic2.state_dict(), './'+ self.myfilename + '/sac_critic2.pth')
+                        torch.save(self.actor.state_dict(), './sac_actor.pth')
+                        torch.save(self.softq_critic1.state_dict(), './sac_critic1.pth')
+                        torch.save(self.softq_critic2.state_dict(), './sac_critic2.pth')
 
 
                 # DDPG algorithm:
-                elif self.algorithm == 'DDPG':
+                elif self.algorithm_name == 'DDPG':
                     self.DDPG(batch_obs, batch_act, batch_rew, batch_next_obs, batch_done)
 
                     if self.batch_size < len(self.replaybuffer):
@@ -192,23 +184,23 @@ class ALGORITHM:
 
                     # saving the actor and critic networks for SAC
                     if i_so_far % self.freq_ac_save == 0:
-                        torch.save(self.actor.state_dict(), './'+ self.myfilename + '/ddpg_actor.pth')
-                        torch.save(self.softq_critic1.state_dict(), './'+ self.myfilename + '/ddpg_critic.pth')
+                        torch.save(self.actor.state_dict(), './ddpg_actor.pth')
+                        torch.save(self.softq_critic1.state_dict(), './ddpg_critic.pth')
 
 
                 # PPO algorithm:
-                elif self.algorithm == 'PPO':
+                elif self.algorithm_name == 'PPO':
                     self.PPO(batch_obs, batch_act, batch_log_probs, batch_rew, batch_next_obs, batch_done)
                     self._log_summary()
 
                     # saving the actor and critic networks for SAC
                     if i_so_far % self.freq_ac_save == 0:
-                        torch.save(self.actor.state_dict(), './'+ self.myfilename + '/ppo_actor.pth')
-                        torch.save(self.softV_critic.state_dict(), './'+ self.myfilename + '/ppo_Vcritic.pth')
+                        torch.save(self.actor.state_dict(), './ppo_actor.pth')
+                        torch.save(self.softV_critic.state_dict(), './ppo_Vcritic.pth')
 
 
                 # Shack-Hartmann method
-                elif self.algorithm == 'SHACK':
+                elif self.algorithm_name == 'SHACK':
                     self._log_summary()
 
 
@@ -254,7 +246,7 @@ class ALGORITHM:
                 batch_obs[t,:] = obs
 
                 # The action of Shack-Hartmann is generated through the environment.
-                if self.algorithm == 'SHACK':
+                if self.algorithm_name == 'SHACK':
                     action, log_prob = self.env.shack_get_action()                  # getting next action from Shack-Hartmann
 
                 else:
@@ -530,7 +522,7 @@ class ALGORITHM:
 
             # create the folder for reward plots:
             try:
-                os.makedirs('./' + self.myfilename + '/reward_plot/epoch_' + str(self.epoch_no+1))
+                os.makedirs('./reward_plot/epoch_' + str(self.epoch_no+1))
             except OSError:
                 pass
 
@@ -540,11 +532,11 @@ class ALGORITHM:
             plt.xlabel('training iterations')
             plt.ylabel('Average cost: %f' % (np.round(self.reward_plot[-1],3)))
             plt.grid()
-            plt.savefig(self.myfilename +'/reward_plot/epoch_' + str(self.epoch_no+1)+'/rewards_iteration_' + str(int(len(self.reward_plot))) + ".png")
+            plt.savefig('./reward_plot/epoch_' + str(self.epoch_no+1)+'/rewards_iteration_' + str(int(len(self.reward_plot))) + ".png")
             plt.show()
 
             # save the data of the reward plot
-            with open(self.myfilename + '/rewards.pkl', 'wb') as f:
+            with open('rewards.pkl', 'wb') as f:
                 pickle.dump(self.reward_plot, f)
 
 
