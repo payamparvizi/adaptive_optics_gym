@@ -1,5 +1,5 @@
-hcipy
-gym
+hcipy --upgrade
+gym==0.23.1
 torch
 scipy
 numpy
