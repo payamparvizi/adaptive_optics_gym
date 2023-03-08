@@ -1,6 +1,7 @@
 hcipy
 torch==1.12.1
 gym==0.23.1
+pygame
 scipy==1.7.1
 numpy==1.19.5
 pandas==1.3.4
