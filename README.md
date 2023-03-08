@@ -53,7 +53,7 @@ To develop our Reinforcement Learning algorithms, we employed the PyTorch framew
 ```
 conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cpuonly -c pytorch
 ```
-or 
+or installation through PyPI using the command:
 ```
 pip install torch==1.12.1+cpu torchvision==0.13.1+cpu torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cpu
 ```
