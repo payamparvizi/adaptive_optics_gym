@@ -89,7 +89,7 @@ There are other dependencies that have been utilized in this work as follows:
 - **numpy** (for all numerical calculations)
 - **pandas** (for data manipulation and analysis)
 - **matplotlib** (for visualisations)
-- **pickle** (for storing or loading data)
+- **pickle** (for storing or loading data) [pickle module is part of the standard library in Python]
 - **argparse** (for command-line parsing)
 - **sys** (for manipulating the runtime environment)
 - **os** (for creating the naming a directory)
