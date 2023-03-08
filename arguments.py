@@ -20,12 +20,9 @@ def get_args():
     parser.add_argument('--mode', dest='mode', type=str, default='train')
 
 
-    # Select the Actor. If:
-    # training from scratch --> default=''
-    # testing or continuing training actor for SAC --> default='sac_actor.pth'
-    # testing or continuing training actor for DDPG --> default='ddpg_actor.pth'
-    # testing or continuing training actor for PPO --> default='ppo_actor.pth'
-    parser.add_argument('--actor_model', dest='actor_model', type=str, default='')
+    # Write the desired Gym environment (For example: 'Pendulum-v1')
+    # If the Adaptive Optics environment is preferred, please write 'AO-v0'.
+    parser.add_argument('--environment_name', dest='environment_name', type=str, default='AO-v0')
 
 
     # Write the desired algorithm. For:
@@ -36,9 +33,12 @@ def get_args():
     parser.add_argument('--algorithm_name', dest='algorithm_name', type=str, default='PPO')
 
 
-    # Write the desired Gym environment (For example: 'Pendulum-v1')
-    # If the Adaptive Optics environment is preferred, please write 'AO-v0'.
-    parser.add_argument('--environment_name', dest='environment_name', type=str, default='AO-v0')
+    # Select the Actor. If:
+    # training from scratch --> default=''
+    # testing or continuing training actor for SAC --> default='sac_actor.pth'
+    # testing or continuing training actor for DDPG --> default='ddpg_actor.pth'
+    # testing or continuing training actor for PPO --> default='ppo_actor.pth'
+    parser.add_argument('--actor_model', dest='actor_model', type=str, default='')
 
 
     # Select the 1st critic for SAC and only critic for DDPG. If:
