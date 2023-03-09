@@ -152,7 +152,8 @@ python main.py --algorithm_name SAC
 ```
 or
 ```
-python main.py --mode train --environment_name AO-v0 --algorithm_name SAC 
+python main.py --mode train --environment_name AO-v0 \
+--algorithm_name SAC 
 ```
 
 
