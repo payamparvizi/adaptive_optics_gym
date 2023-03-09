@@ -20,13 +20,22 @@ Reward function: The reward function is calculated as the Strehl ratio of the op
 
 ## Installation Instructions
 
-In this work, we used Windows operating system with Python 3.9.7 version. First, the modules can be installed through [requirements.txt](requirements.txt) file by using command below:
+In this work, we used Windows operating system with Python 3.9.7 version. First, the modules can be installed through [requirements.txt](requirements.txt) file by using command below in Windows:
 
 ```
 python -m venv venv
 venv\scripts\activate
 pip install -r requirements.txt
 ```
+
+Or if using Linux:
+
+```
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
 
 The modules that are used are as follow:
 
