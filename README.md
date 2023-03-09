@@ -134,12 +134,12 @@ python main.py --mode train --environment_name AO-v0 --algorithm_name PPO
 
 The --environment_name can be any Gym environment (for example: Pendulum-v1)
 
-To continue training with the existing actor and value function models:
+To continue training with the existing actor and value function:
 ```
 python main.py --mode train --environment_name AO-v0 --algorithm_name PPO --actor_model ppo_actor.pth --criticV_model ppo_Vcritic.pth 
 ```
 
-For testing the actor model of PPO:
+For testing the actor of PPO:
 ```
 python main.py --mode test --actor_model ppo_actor.pth
 ```
@@ -156,14 +156,36 @@ python main.py --mode train --environment_name AO-v0 --algorithm_name SAC
 ```
 
 
-To continue training with the existing actor and critic models:
+To continue training with the existing actor and critics:
 ```
-python main.py --mode train --environment_name AO-v0 --algorithm_name SAC --actor_model SA_actor.pth --criticQ1_model sac_critic1.pth --criticQ2_model sac_critic2.pth  
+python main.py --mode train --environment_name AO-v0 --algorithm_name SAC --actor_model sac_actor.pth --criticQ1_model sac_critic1.pth --criticQ2_model sac_critic2.pth  
 ```
 
-For testing the actor model of SAC:
+For testing the actor of SAC:
 ```
 python main.py --mode test --actor_model sac_actor.pth
+```
+
+### Deep Deterministic Policy Gradient (DDPG)
+
+For training DDPG on Adaptive Optics from scratch:
+```
+python main.py --algorithm_name DDPG 
+```
+or
+```
+python main.py --mode train --environment_name AO-v0 --algorithm_name DDPG 
+```
+
+
+To continue training with the existing actor and critics:
+```
+python main.py --mode train --environment_name AO-v0 --algorithm_name DDPG --actor_model ddpg_actor.pth --criticQ1_model ddpg_critic.pth
+```
+
+For testing the actor of DDPG:
+```
+python main.py --mode test --actor_model ddpg_actor.pth
 ```
 
 
