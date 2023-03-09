@@ -152,15 +152,13 @@ python main.py --algorithm_name SAC
 ```
 or
 ```
-python main.py --mode train --environment_name AO-v0 \
---algorithm_name SAC 
+python main.py --mode train --environment_name AO-v0 --algorithm_name SAC 
 ```
 
 
 To continue training with the existing actor and critic models:
 ```
-python main.py --mode train --environment_name AO-v0 --algorithm_name SAC \
---actor_model SA_actor.pth --criticQ1_model sac_critic1.pth --criticQ2_model sac_critic2.pth  
+python main.py --mode train --environment_name AO-v0 --algorithm_name SAC --actor_model SA_actor.pth --criticQ1_model sac_critic1.pth --criticQ2_model sac_critic2.pth  
 ```
 
 For testing the actor model of PPO:
