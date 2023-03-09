@@ -132,6 +132,11 @@ or
 python main.py --mode train --environment_name AO-v0 --algorithm_name PPO 
 ```
 
+To continue training with the existing actor and value function models:
+```
+python main.py --mode train --environment_name AO-v0 --algorithm_name PPO --actor_model ppo_actor.pth --criticV_model ppo_Vcritic.pth 
+```
+
 
 ## Training the models from the paper
 
