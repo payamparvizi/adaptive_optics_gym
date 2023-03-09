@@ -24,7 +24,7 @@ In this work, we used Windows operating system with Python 3.9.7 version. First,
 
 ```
 python -m venv venv
-venv/scripts/activate
+venv\scripts\activate
 pip install -r requirements.txt
 ```
 
