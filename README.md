@@ -36,8 +36,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-
-The modules that are used are as follow:
+The following commands can be executed to install all the required modules. Nevertheless, if there is an interest to install each module individually, the respective commands can be found below. 
+The modules utilized in this project are as follows:
 
 ### HCIPy: High Contrast Imaging for Python
 
