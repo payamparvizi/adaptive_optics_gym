@@ -132,8 +132,6 @@ or
 python main.py --mode train --environment_name AO-v0 --algorithm_name PPO 
 ```
 
-The --environment_name can be any Gym environment (for example: Pendulum-v1)
-
 To continue training with the existing actor and value function:
 ```
 python main.py --mode train --algorithm_name PPO --actor_model ppo_actor.pth --criticV_model ppo_Vcritic.pth 
