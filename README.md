@@ -188,6 +188,16 @@ For testing the actor of DDPG:
 python main.py --mode test --actor_model ddpg_actor.pth
 ```
 
+### Shack-Hartmann Wavefront Sensor
+
+The Shack-Hartmann wavefront sensor method is utilized as a point of reference for comparative purposes, rather than for training purposes
+
+To illustrate how Shack-Hartmann wavefront sensor works:
+```
+python main.py --algorithm_name SHACK 
+```
+Note that Shack-Hartmann method does not work on other Gym environments.
+
 
 ## Training the models from the paper
 
