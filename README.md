@@ -136,7 +136,7 @@ The --environment_name can be any Gym environment (for example: Pendulum-v1)
 
 To continue training with the existing actor and value function:
 ```
-python main.py --mode train --environment_name AO-v0 --algorithm_name PPO --actor_model ppo_actor.pth --criticV_model ppo_Vcritic.pth 
+python main.py --mode train --algorithm_name PPO --actor_model ppo_actor.pth --criticV_model ppo_Vcritic.pth 
 ```
 
 For testing the actor of PPO:
@@ -158,7 +158,7 @@ python main.py --mode train --environment_name AO-v0 --algorithm_name SAC
 
 To continue training with the existing actor and critics:
 ```
-python main.py --mode train --environment_name AO-v0 --algorithm_name SAC --actor_model sac_actor.pth --criticQ1_model sac_critic1.pth --criticQ2_model sac_critic2.pth  
+python main.py --mode train --algorithm_name SAC --actor_model sac_actor.pth --criticQ1_model sac_critic1.pth --criticQ2_model sac_critic2.pth  
 ```
 
 For testing the actor of SAC:
@@ -180,7 +180,7 @@ python main.py --mode train --environment_name AO-v0 --algorithm_name DDPG
 
 To continue training with the existing actor and critics:
 ```
-python main.py --mode train --environment_name AO-v0 --algorithm_name DDPG --actor_model ddpg_actor.pth --criticQ1_model ddpg_critic.pth
+python main.py --mode train --algorithm_name DDPG --actor_model ddpg_actor.pth --criticQ1_model ddpg_critic.pth
 ```
 
 For testing the actor of DDPG:
