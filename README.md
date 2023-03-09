@@ -201,7 +201,7 @@ Note that Shack-Hartmann method does not work on other Gym environments.
 
 ### Note
 
-In order to modify the hyperparameters of the algorithms, make changes within the [main.py](main.py) file. Conversely, to adjust the parameters of the Adaptive Optics environment, it is advised to make modifications within the [AO_env.py](AO_env.py) file.
+In order to modify the hyperparameters of the algorithms, make changes within the [mdsfin.py](main.py) file. Conversely, to adjust the parameters of the Adaptive Optics environment, it is advised to make modifications within the [AO_env.py](AO_env.py) file.
 
 ## How it works
 
