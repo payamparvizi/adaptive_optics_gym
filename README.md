@@ -123,7 +123,7 @@ In this work, Proximal Policy Optimization (PPO), Soft Actor-Critic (SAC), and D
 It is worth to note that a portion of the code's foundation was derived from Yang Yu's [Github repository](https://github.com/ericyangyu/PPO-for-Beginners)
 
 ### Proximal Policy Optimization (PPO)
-The default configuration for executing the program entails employing the Proximal Policy Optimization (PPO) algorithm in the Adaptive Optics environment.
+The default configuration for execution entails employing the Proximal Policy Optimization (PPO) algorithm in the Adaptive Optics environment.
 
 For training PPO on Adaptive Optics from scratch:
 ```
@@ -131,7 +131,7 @@ python main.py
 ```
 or
 ```
-python main.py --mode train --environment_name AO-v0 --algorithm_name PPO 
+python main.py --mode train --algorithm_name PPO 
 ```
 
 To continue training with the existing actor and value function:
@@ -152,7 +152,7 @@ python main.py --algorithm_name SAC
 ```
 or
 ```
-python main.py --mode train --environment_name AO-v0 --algorithm_name SAC 
+python main.py --mode train --algorithm_name SAC 
 ```
 
 
@@ -174,7 +174,7 @@ python main.py --algorithm_name DDPG
 ```
 or
 ```
-python main.py --mode train --environment_name AO-v0 --algorithm_name DDPG 
+python main.py --mode train --algorithm_name DDPG 
 ```
 
 
