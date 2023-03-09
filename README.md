@@ -20,7 +20,7 @@ Reward function: The reward function is calculated as the Strehl ratio of the op
 
 ## Installation Instructions
 
-In this work, we used Windows operating system with Python 3.9.7 version. First, the modules can be installed through:
+In this work, we used Windows operating system with Python 3.9.7 version. First, the modules can be installed through [a relative link](requirements.txt):
 
 ```
 pip install hcipy --upgrade
