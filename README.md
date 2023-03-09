@@ -123,6 +123,16 @@ In this work, Proximal Policy Optimization (PPO), Soft Actor-Critic (SAC), and D
 ### Proximal Policy Optimization (PPO)
 The default configuration for executing the program entails employing the Proximal Policy Optimization (PPO) algorithm in the Adaptive Optics environment.
 
+For training PPO on Adaptive Optics from scratch:
+```
+python main.py
+```
+or
+```
+python main.py --mode train --environment_name 'AO-v0'
+```
+
+
 ## Training the models from the paper
 
 ## Citation
