@@ -141,7 +141,7 @@ python main.py --mode train --environment_name AO-v0 --algorithm_name PPO --acto
 
 For testing the actor model of PPO:
 ```
-python main.py --mode test --environment_name AO-v0 --actor_model ppo_actor.pth
+python main.py --mode test --actor_model ppo_actor.pth
 ```
 
 
