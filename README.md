@@ -129,7 +129,7 @@ python main.py
 ```
 or
 ```
-python main.py --mode train --environment_name 'AO-v0'
+python main.py --mode train --algorithm_name 'PPO' --environment_name 'AO-v0'
 ```
 
 
