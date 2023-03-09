@@ -263,7 +263,6 @@ class ALGORITHM:
                 batch_next_obs[t,:] = next_obs    # collection of the next observations
                 batch_done[t] = done              # collection of done
 
-
                 t += 1       # count how many timesteps we've run
 
                 # if at the end of the episode, break:
@@ -533,7 +532,10 @@ class ALGORITHM:
             plt.ylabel('Average cost: %f' % (np.round(self.reward_plot[-1],3)))
             plt.grid()
             plt.savefig('./reward_plot/epoch_' + str(self.epoch_no+1)+'/rewards_iteration_' + str(int(len(self.reward_plot))) + ".png")
-            plt.show()
+            plt.show(block=False)
+            plt.pause(1)
+            plt.clf()
+            plt.close()
 
             # save the data of the reward plot
             with open('rewards.pkl', 'wb') as f:
