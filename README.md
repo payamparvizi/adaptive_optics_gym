@@ -190,7 +190,7 @@ python main.py --mode test --actor_model ddpg_actor.pth
 
 ### Shack-Hartmann Wavefront Sensor
 
-The Shack-Hartmann wavefront sensor method is utilized as a point of reference for comparative purposes. It is not training.
+The Shack-Hartmann wavefront sensor method is utilized as a point of reference for comparative purposes. It is not for the purpose of training.
 
 To illustrate how Shack-Hartmann wavefront sensor works:
 ```
