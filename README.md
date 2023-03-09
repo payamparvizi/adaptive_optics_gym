@@ -118,7 +118,7 @@ Modules that are part of the standard library in Python:
 
 ## Running the RL environment 
 
-In this work, Proximal Policy Optimization (PPO), Soft Actor-Critic (SAC), and Deep Deterministic Policy Gradient (DDPG) algorithms can be used in any Gym environment, along with Shack-Hartmann for Adaptive Optics environment (‘AO-v0’). a part of the foundation of the code written is used Yang Yu's [Github repository](https://github.com/ericyangyu/PPO-for-Beginners)
+In this work, Proximal Policy Optimization (PPO), Soft Actor-Critic (SAC), and Deep Deterministic Policy Gradient (DDPG) algorithms can be used in any Gym environment, along with Shack-Hartmann for Adaptive Optics environment (‘AO-v0’). A portion of the code's foundation was derived from Yang Yu's [Github repository](https://github.com/ericyangyu/PPO-for-Beginners)
 
 ### Proximal Policy Optimization (PPO)
 The default configuration for executing the program entails employing the Proximal Policy Optimization (PPO) algorithm in the Adaptive Optics environment.
