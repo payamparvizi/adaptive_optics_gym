@@ -326,7 +326,12 @@ class AOEnv(gym.Env):
         plt.xlabel('x (um)')
         plt.ylabel('y (um)')
         
-        plt.show()
+        plt.show(block=False)
+        plt.pause(0.2)
+        plt.clf()
+
+        if self.timestep+1 == self.max_steps:
+            plt.close()
 
 
 #-----------------------------------------------------------------------------#
