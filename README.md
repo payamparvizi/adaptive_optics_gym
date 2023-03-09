@@ -199,6 +199,9 @@ python main.py --algorithm_name SHACK
 
 Note that Shack-Hartmann method does not work on other Gym environments.
 
+## How it works
+
+
 
 ## Training the models from the paper
 
