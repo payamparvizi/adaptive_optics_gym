@@ -178,7 +178,7 @@ python main.py --mode train --environment_name AO-v0 --algorithm_name DDPG
 ```
 
 
-To continue training with the existing actor and critics:
+To continue training with the existing actor and critic:
 ```
 python main.py --mode train --algorithm_name DDPG --actor_model ddpg_actor.pth --criticQ1_model ddpg_critic.pth
 ```
