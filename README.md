@@ -36,7 +36,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-The following commands can be executed to install all the required modules. Nevertheless, if there is an interest to install each module individually, the respective commands can be found below. 
+The following commands can be executed to install all the required modules. Nevertheless, if there is an interest to install each module individually, the commands can be found below. 
 
 The modules utilized in this work are as follows:
 
