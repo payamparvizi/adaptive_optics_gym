@@ -207,11 +207,6 @@ Also, if interested to use other Gym environments, you can add --environment_nam
 
 For example: --environment_name Pendulum-v1
 
-## How it works
-
-
-
-## Training the models from the paper
 
 ## Citation
 
