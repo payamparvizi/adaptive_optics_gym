@@ -23,16 +23,16 @@ Reward function: The reward function is calculated as the Strehl ratio of the op
 In this work, we used Windows operating system with Python 3.9.7 version. First, the modules can be installed through [requirements.txt](requirements.txt) file through PyPI using the command below in Windows:
 
 ```
-python -m venv gym_env
-gym_env\scripts\activate
+python -m venv ao_gym_env
+ao_gym_env\scripts\activate
 pip install -r requirements.txt
 ```
 
 Or if using Linux:
 
 ```
-python -m venv gym_env
-source gym_env/bin/activate
+python -m venv ao_gym_env
+source ao_gym_env/bin/activate
 pip install -r requirements.txt
 ```
 
