@@ -12,12 +12,14 @@ import sys
 import gym
 import gym_AO
 import torch
+import os
 
 from arguments import get_args
 from algorithm import ALGORITHM
 from network import Actor, CriticQ1, CriticQ2, CriticV
 from eval_policy import eval_policy
 
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 #--------------------------------- Training ----------------------------------#
 def train(env, hyperparameters, default_parameters, algorithm_name, actor_model, 
