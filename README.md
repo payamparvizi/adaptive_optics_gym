@@ -36,6 +36,7 @@ source ao_gym_env/bin/activate
 pip install -r requirements.txt
 ```
 
+<!---
 The modules can also be installed with Conda:
 
 ```
@@ -43,6 +44,7 @@ conda create -n ao_gym_env python==3.9.7
 conda activate ao_gym_env
 conda install --file requirements.txt
 ```
+-->
 
 The following commands can be executed to install all the required modules. Nevertheless, if there is an interest to install each module individually, the commands can be found below. 
 
