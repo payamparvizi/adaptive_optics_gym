@@ -228,7 +228,16 @@ For example: --environment_name Pendulum-v1
 
 ## Citation
 
-http://arxiv.org/abs/2303.07516
+For Bibtex Citation:
+
+@misc{parvizi2023reinforcement,
+      title={Reinforcement Learning-based Wavefront Sensorless Adaptive Optics Approaches for Satellite-to-Ground Laser Communication}, 
+      author={Payam Parvizi and Runnan Zou and Colin Bellinger and Ross Cheriton and Davide Spinello},
+      year={2023},
+      eprint={2303.07516},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
 
 ## Acknowledgement
 
