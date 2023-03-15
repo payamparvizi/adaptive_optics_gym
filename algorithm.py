@@ -531,7 +531,7 @@ class ALGORITHM:
             plt.xlabel('training iterations')
             plt.ylabel('Average cost: %f' % (np.round(self.reward_plot[-1],3)))
             plt.grid()
-            plt.savefig('./reward_plot/epoch_' + str(self.epoch_no+1)+'/rewards_iteration_' + str(int(len(self.reward_plot))) + ".png")
+            #plt.savefig('./reward_plot/epoch_' + str(self.epoch_no+1)+'/rewards_iteration_' + str(int(len(self.reward_plot))) + ".png")
             plt.show(block=False)
             plt.pause(1)
             plt.clf()
