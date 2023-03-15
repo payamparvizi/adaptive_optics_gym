@@ -228,7 +228,7 @@ For example: --environment_name Pendulum-v1
 
 ## Citation
 
-For Bibtex Citation:
+For Bibtex citation:
 
 ```
 @misc{parvizi2023reinforcement,
