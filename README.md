@@ -230,6 +230,7 @@ For example: --environment_name Pendulum-v1
 
 For Bibtex Citation:
 
+```
 @misc{parvizi2023reinforcement,
       title={Reinforcement Learning-based Wavefront Sensorless Adaptive Optics Approaches for Satellite-to-Ground Laser Communication}, 
       author={Payam Parvizi and Runnan Zou and Colin Bellinger and Ross Cheriton and Davide Spinello},
@@ -238,6 +239,7 @@ For Bibtex Citation:
       archivePrefix={arXiv},
       primaryClass={cs.LG}
 }
+```
 
 ## Acknowledgement
 
