@@ -228,7 +228,7 @@ For example: --environment_name Pendulum-v1
 
 ## Citation
 
-https://arxiv.org/abs/2303.07516
+http://arxiv.org/abs/2303.07516
 
 ## Acknowledgement
 
