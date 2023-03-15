@@ -231,15 +231,35 @@ For example: --environment_name Pendulum-v1
 For Bibtex citation:
 
 ```
-@misc{parvizi2023reinforcement,
+@article{parvizi2023reinforcement,
       title={Reinforcement Learning-based Wavefront Sensorless Adaptive Optics Approaches for Satellite-to-Ground Laser Communication}, 
-      author={Payam Parvizi and Runnan Zou and Colin Bellinger and Ross Cheriton and Davide Spinello},
-      year={2023},
-      eprint={2303.07516},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
+      author = {Parvizi, Payam and Zou, Runnan and Bellinger, Colin and Cheriton, Ross and Spinello, Davide},
+      journal={arXiv preprint arXiv:2303.07516},
+      year={2023}
 }
 ```
+or
+
+```
+@misc{https://doi.org/10.48550/arxiv.2303.07516,
+  doi = {10.48550/ARXIV.2303.07516},
+  
+  url = {https://arxiv.org/abs/2303.07516},
+  
+  author = {Parvizi, Payam and Zou, Runnan and Bellinger, Colin and Cheriton, Ross and Spinello, Davide},
+  
+  keywords = {Machine Learning (cs.LG), Instrumentation and Methods for Astrophysics (astro-ph.IM), Signal Processing (eess.SP), FOS: Computer and information sciences, FOS: Computer and information sciences, FOS: Physical sciences, FOS: Physical sciences, FOS: Electrical engineering, electronic engineering, information engineering, FOS: Electrical engineering, electronic engineering, information engineering, I.2; J.2, 68Txx},
+  
+  title = {Reinforcement Learning-based Wavefront Sensorless Adaptive Optics Approaches for Satellite-to-Ground Laser Communication},
+  
+  publisher = {arXiv},
+  
+  year = {2023},
+  
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
+```
+
 
 ## Acknowledgement
 
