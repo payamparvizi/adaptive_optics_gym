@@ -228,6 +228,8 @@ For example: --environment_name Pendulum-v1
 
 ## Citation
 
+https://arxiv.org/abs/2303.07516
+
 ## Acknowledgement
 
 This work was graciously funded by the [University of Ottawa](https://www.uottawa.ca) and the National Research Council of Canada's [AI for Design Challenge program](https://nrc.canada.ca/en/research-development/research-collaboration/programs/artificial-intelligence-design-challenge-program). 
