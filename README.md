@@ -231,13 +231,11 @@ For example: --environment_name Pendulum-v1
 For Bibtex citation:
 
 ```
-@misc{parvizi2023reinforcement,
-   title = {Reinforcement Learning-based Wavefront Sensorless Adaptive Optics Approaches for Satellite-to-Ground Laser Communication},
-   author = {Parvizi, Payam and Zou, Runnan and Bellinger, Colin and Cheriton, Ross and Spinello, Davide},  
-   doi = {10.48550/ARXIV.2303.07516},
-   url = {https://arxiv.org/abs/2303.07516},
-   publisher = {arXiv},
-   year = {2023}
+@article{parvizi2023reinforcement,
+  title={Reinforcement Learning-based Wavefront Sensorless Adaptive Optics Approaches for Satellite-to-Ground Laser Communication},
+  author={Parvizi, Payam and Zou, Runnan and Bellinger, Colin and Cheriton, Ross and Spinello, Davide},
+  journal={arXiv preprint arXiv:2303.07516},
+  year={2023}
 }
 ```
 
