@@ -5,7 +5,7 @@
 
 #----------------------------- Importing modules -----------------------------#
 import os
-import gym
+import gymnasium as gym
 import torch
 import torch.optim as optim
 import torch.nn as nn
@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import pickle
 
 from replay_buffer import ReplayBuffer
+from network import OrnsteinUhlenbeckNoise
 
 
 #------------------------------ Initialization -------------------------------#
@@ -32,8 +33,7 @@ class ALGORITHM:
         assert(type(env.action_space) == gym.spaces.Box)
         self.obs_dim = env.observation_space.shape[0]
         self.act_dim = env.action_space.shape[0]
-
-
+        
         # Initialize actor and critic networks and replay buffer for SAC
         if self.algorithm_name == 'SAC':
 
@@ -87,7 +87,9 @@ class ALGORITHM:
             self.replaybuffer = ReplayBuffer(self.replay_size, a_dim=self.act_dim, 
                                              a_dtype=np.float32, s_dim=self.obs_dim, s_dtype=np.float32, store_mu=False)
 
-
+            self.ou_noise = OrnsteinUhlenbeckNoise(self.act_dim, self.mu, self.theta, self.sigma)
+            
+            
         # Initialize actor and value function for PPO
         if self.algorithm_name == 'PPO':
 
@@ -149,6 +151,7 @@ class ALGORITHM:
 
             t_so_far = 0             # initialize the timestep so far
             i_so_far = 0             # initialize the iterations so far
+            self.num_episodes = 0         # initialize the number of episodes
 
             while t_so_far < total_timesteps:
 
@@ -232,14 +235,14 @@ class ALGORITHM:
             ep_rew = np.zeros((self.timesteps_per_episode)) 
 
             # reset the environment for new episode
-            obs = self.env.reset()
+            obs, _ = self.env.reset()
             done = False
 
             # run for a maximum number of timesteps per episode
             for ep_t in range(self.timesteps_per_episode):
 
                 # render the environment
-                if self.render and (self.logger['i_so_far'] % self.freq_render == 0) and batch_lens[0] == 0:
+                if self.render and (self.num_episodes % self.freq_render == 0) and batch_lens[0] == 0:
                     self.env.render()
 
                 # Collect the observation from simulation
@@ -247,13 +250,16 @@ class ALGORITHM:
 
                 # The action of Shack-Hartmann is generated through the environment.
                 if self.algorithm_name == 'SHACK':
-                    action, log_prob = self.env.shack_get_action()                  # getting next action from Shack-Hartmann
+                    action, log_prob = self.env.SH_step()                  # getting next action from Shack-Hartmann
 
                 else:
                     action, log_prob = self.actor.get_action(obs, self.cov_mat)     # getting next action from actor
 
+                if self.algorithm_name == 'DDPG':
+                    action += self.ou_noise.sample()
+                
                 # observation, reward and done from simulation
-                obs, rew, done, _ = self.env.step(action)
+                obs, rew, done, _, _ = self.env.step(action)
                 next_obs = obs
 
                 batch_act[t,:] = action           # collection of the actions
@@ -268,6 +274,9 @@ class ALGORITHM:
                 # if at the end of the episode, break:
                 if done:
                     break
+                
+            self.num_episodes += 1
+            
 
             batch_ep_rew[t_iteration, :] = ep_rew     # collection of rewards per episode in iteration
             batch_lens[t_iteration] = ep_t + 1    # collection of the length of each episode
@@ -510,8 +519,7 @@ class ALGORITHM:
             print(f" timesteps so far:      {int(self.logger['t_so_far'])}", flush=True)
             print(f" episodes so far:       {(self.logger['i_so_far'] +1)*self.episodes_per_iteration}", flush=True)
             print(f" iterations so far:     {self.logger['i_so_far'] +1}", flush=True)
-            print(f" epochs so far:         {self.epoch_no+1}", flush=True)
-            print(f" Average cost:          {str(round(avg_ep_rews, 2))}", flush=True) 
+            print(f" Average reward:        {str(round(avg_ep_rews, 2))}", flush=True) 
             print(f"----------------------------------------------------------", flush=True)
             print(flush=True)
 
@@ -520,10 +528,10 @@ class ALGORITHM:
         if self.logger['i_so_far'] % self.freq_rew == 0 and (len(self.reward_plot) > 1):
 
             # create the folder for reward plots:
-            try:
-                os.makedirs('./reward_plot/epoch_' + str(self.epoch_no+1))
-            except OSError:
-                pass
+            # try:
+            #     os.makedirs('./reward_plot/epoch_' + str(self.epoch_no+1))
+            # except OSError:
+            #     pass
 
             # plot the rewards
             plt.plot(self.reward_plot,'b')

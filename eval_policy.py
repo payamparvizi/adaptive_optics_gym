@@ -10,7 +10,7 @@ def rollout(policy, env, render):
     while True:
 
         # reset the environment for new episode
-        obs = env.reset()
+        obs, _ = env.reset()
         done = False
 
         # initialize the length of the episode
@@ -31,11 +31,10 @@ def rollout(policy, env, render):
             action = policy(obs).detach().numpy()
 
             # observation, reward and done from simulation
-            obs, rew, done, _ = env.step(action)
+            obs, rew, done, _, _ = env.step(action)
 
             # the summation of the reward in the episode
             ep_rew += rew
-
 
         # calculate the length of the episode
         ep_len = t
@@ -49,7 +48,7 @@ def _log_summary(ep_len, ep_ret, ep_num):
 
     print(flush = True)
     print(f"-------------------- episode #{ep_num+1} --------------------", flush=True)
-    print(f"Total cost:    {str(round(ep_ret,2))}", flush=True)
+    print(f"Total cost:    {str(ep_ret)}", flush=True)
     print(f"----------------------------------------------------", flush=True)
     print(flush=True)
 

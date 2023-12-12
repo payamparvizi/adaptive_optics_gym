@@ -9,7 +9,7 @@
 
 #----------------------------- Importing modules -----------------------------#
 import sys
-import gym
+import gymnasium as gym
 import gym_AO
 import torch
 import os
@@ -86,26 +86,51 @@ def train(env, hyperparameters, default_parameters, algorithm_name, actor_model,
 
 
 #--------------------------------- Testing -----------------------------------#
-def test(env, actor_model, hyperparameters, default_parameters):
-
-    hidden_dim_actor = hyperparameters.get('hidden_dim_actor')
-
-    if actor_model == '':
-        print(f"Didn't specify model file in argument file", flush=True)
-        sys.exit(0)
+def test(env, algorithm_name, actor_model, hyperparameters, default_parameters):
 
     # Extract out dimensions of observation and action spaces
     obs_dim = env.observation_space.shape[0]
     act_dim = env.action_space.shape[0]
+    
+    if algorithm_name == 'PPO':
+        print(f"Testing PPO model ...", flush=True)
+        print(f"Loading in {actor_model} for PPO ...", flush=True)
+        hidden_dim_actor = hyperparameters.get('hidden_dim_actor')
+        
+        # Building our policy
+        policy = Actor(obs_dim, act_dim, hidden_dim_actor)
 
-    # Building our policy
-    policy = Actor(obs_dim, act_dim, hidden_dim_actor)
+        # Load in the actor model saved before
+        policy.load_state_dict(torch.load(actor_model))
+        
+    elif algorithm_name == 'SAC':
+        print(f"Testing SAC model ...", flush=True)
+        print(f"Loading in {actor_model} for SAC ...", flush=True)
+        hidden_dim_actor = hyperparameters.get('hidden_dim_actor')
+        
+        # Building our policy
+        policy = Actor(obs_dim, act_dim, hidden_dim_actor)
 
-    # Load in the actor model saved before
-    policy.load_state_dict(torch.load(actor_model))
+        # Load in the actor model saved before
+        policy.load_state_dict(torch.load(actor_model))
+        
+    elif algorithm_name == 'DDPG':
+        print(f"Testing DDPG model ...", flush=True)
+        print(f"Loading in {actor_model} for DDPG ...", flush=True)
+        hidden_dim_actor = hyperparameters.get('hidden_dim_actor')
+        
+        # Building our policy
+        policy = Actor(obs_dim, act_dim, hidden_dim_actor)
+
+        # Load in the actor model saved before
+        policy.load_state_dict(torch.load(actor_model))
+        
+    if actor_model == '':
+        print(f"Didn't specify model file in argument file", flush=True)
+        sys.exit(0)
 
     # Evaluate the policy
-    eval_policy(policy=policy, env=env, render=True)
+    eval_policy(policy=policy, env=env, render=False)
 
 
 #----------------------------------- main ------------------------------------#
@@ -123,7 +148,7 @@ def main(args):
 
         'freq_log': 2,                 # Number of training iterations to display logger/information
         'freq_rew': 20,                # Number of training iterations to display reward plots
-        'freq_render': 20,             # Number of training iterations to render environment
+        'freq_render': 20,             # Number of training episodes to render environment
         'freq_ac_save': 20,            # Number of training iterations to save actor/critic
 
         'render': True,                # Rendering environment
@@ -188,6 +213,11 @@ def main(args):
             # other parameters
             'gamma': float(0.95),              # Discount factor (between 0 and 1)
             'polyak': 1e-2,                    # Interpolation factor averaging for target networks
+            
+            # noise
+            'mu': 0,
+            'theta': 0.3,
+            'sigma': 0.05,
 
             # Training information
             'epoch': 1,                        # Number of epochs
@@ -240,8 +270,26 @@ def main(args):
             sys.exit(0)
 
 
+    if algorithm_name =='PPO' or algorithm_name =='DDPG' or algorithm_name =='SAC':
+        SH_operation = False
+    elif algorithm_name =='SHACK':
+        SH_operation = True
+    
+    
     # Envrionment definition
-    env = gym.make(args.environment_name)
+    env = gym.make(args.environment_name,
+                atm_type='quasi_static',                                        # atmospheric condition: 'quasi_static', 'semi_dynamic', 'dynamic'
+                atm_vel = 0,                                                    # atmosphere velocity
+                atm_fried = 0.20,                                               # Fried parameter of the atmosphere
+                act_type = 'num_actuators',                                     # action type: 'num_actuators', 'zernike'
+                act_dim = 64,                                                   # action dimension
+                obs_dim = 2,                                                    # observation dimension
+                rew_type = 'strehl_ratio',                                      # reward type: 'strehl_ratio', 'smf_ssim'
+                rew_threshold = None,                                           # Threshould of the reward value
+                timesteps_per_episode= hyperparameters.get('timesteps_per_episode'),  # Number of timesteps per episode
+                flat_mirror_start_per_episode = True,                           # If we want each episode to start with flat mirror
+                SH_operation=SH_operation,                                      # If we require Shack_Hartmann wavefront sensor operation
+                )
 
 
     # training or testing depending on the mode
@@ -252,8 +300,8 @@ def main(args):
               criticV_model=args.criticV_model)
 
     elif args.mode == 'test':
-        test(env=env, actor_model=args.actor_model, hyperparameters=hyperparameters, 
-             default_parameters=default_parameters)
+        test(env=env, algorithm_name=args.algorithm_name, actor_model=args.actor_model, 
+             hyperparameters=hyperparameters, default_parameters=default_parameters)
 
 
 if __name__ == '__main__':

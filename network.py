@@ -256,3 +256,19 @@ class CriticV(nn.Module):
 
 
 #-----------------------------------------------------------------------------#
+class OrnsteinUhlenbeckNoise:
+    def __init__(self, action_dim, mu, theta, sigma):
+        self.action_dim = action_dim
+        self.mu = mu
+        self.theta = theta
+        self.sigma = sigma
+        self.state = np.ones(self.action_dim) * self.mu
+        self.reset()
+
+    def reset(self):
+        self.state = np.ones(self.action_dim) * self.mu
+
+    def sample(self):
+        dx = self.theta * (self.mu - self.state) + self.sigma * np.random.randn(self.action_dim)
+        self.state += dx
+        return self.state
