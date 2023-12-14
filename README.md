@@ -395,7 +395,7 @@ Using actor and critic (and value function) arguments helps in continuing traini
 For Bibtex citation:
 
 ```
-Will be added here after publication ...!
+Parvizi, P.; Zou, R.; Bellinger, C.; Cheriton, R.; Spinello, D. Reinforcement Learning Environment for Wavefront Sensorless Adaptive Optics in Single-Mode Fiber Coupled Optical Satellite Communications Downlinks. Photonics 2023, 10, 1371. https://doi.org/10.3390/photonics10121371
 ```
 
 ## Acknowledgement
