@@ -392,7 +392,7 @@ Using actor and critic (and value function) arguments helps in continuing traini
 
 ## Citation
 
-For Bibtex citation:
+For MDPI and ACS Style citation:
 
 ```
 Parvizi, P.; Zou, R.; Bellinger, C.; Cheriton, R.; Spinello, D. Reinforcement Learning Environment for Wavefront Sensorless Adaptive Optics in Single-Mode Fiber Coupled Optical Satellite Communications Downlinks. Photonics 2023, 10, 1371. https://doi.org/10.3390/photonics10121371
