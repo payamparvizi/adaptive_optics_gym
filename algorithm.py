@@ -507,6 +507,7 @@ class ALGORITHM:
 
         # calculate the average reward per iteration
         avg_ep_rews = np.mean([np.sum(ep_rew) for ep_rew in self.logger['batch_ep_rew']])
+        avg_ep_rews = avg_ep_rews/self.timesteps_per_episode
 
         # collection of average reward per iteration for reward plot
         self.reward_plot.append(avg_ep_rews)
